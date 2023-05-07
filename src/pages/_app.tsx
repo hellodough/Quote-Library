@@ -16,13 +16,15 @@ export default function MyApp({ Component, pageProps }) {
       .then((quotes) => {
         setFetchError(false);
         setQuotes(quotes);
+      })
+      .catch((error) => setFetchError(error))
+      .finally(() => {
         setLoading(false);
       })
-      .catch((error) => setFetchError(error));
   }, []);
 
   if (fetchError) return <p>There was a problem fetching</p>;
-  if (isLoading) return "loading";
+  if (isLoading) return <p>loading</p>;
   if (quotes) {
     return (
       <QuoteContext.Provider value={quotes}>

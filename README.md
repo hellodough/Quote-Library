@@ -10,5 +10,7 @@ The api used is [Zen Quotes](https://docs.zenquotes.io/zenquotes-documentation/)
 
 1. Clone the repo to your repository
 2. `npm run dev`
+3. go to `http://localhost:3000/`
 
 ## How to run the tests
+1. `npm run test`

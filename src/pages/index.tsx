@@ -1,6 +1,7 @@
 import Link from "next/link";
 import QuoteContext from "../components/QuoteContext";
 import QuoteCardPreview from "../components/QuoteCardPreview";
+import Footer from "../components/Footer";
 import { useContext } from "react";
 
 export default function HomePage() {
@@ -21,6 +22,9 @@ export default function HomePage() {
       </div>
 
       {quotes.size === 0 && 'No quotes found'}
+      <div className="px-10">
+      <Footer />
+      </div>
     </div>
   );
 }

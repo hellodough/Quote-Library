@@ -3,6 +3,7 @@ import QuoteContext from "../../components/QuoteContext";
 import { useContext } from "react";
 import QuoteCard from "../../components/QuoteCard";
 import Navigation from "../../components/Navigation";
+import Footer from "../../components/Footer";
 
 const QuotePage = () => {
   const quotes = useContext(QuoteContext);
@@ -18,7 +19,8 @@ const QuotePage = () => {
               <div className="pb-3">
                 <Navigation />
               </div>
-                <QuoteCard {...quoteDetails} />
+              <QuoteCard {...quoteDetails} />
+              <Footer darkTheme />
             </div>
           </div>
         </div>

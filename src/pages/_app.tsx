@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { QuoteDetails } from "../data/types";
 import { getQuotes } from "../data";
 import React from "react";
+import '../styles/globals.css';
 
 export default function MyApp({ Component, pageProps }) {
   const [quotes, setQuotes] = useState<Map<number, QuoteDetails> | undefined>(undefined);
@@ -25,7 +26,9 @@ export default function MyApp({ Component, pageProps }) {
   if (quotes) {
     return (
       <QuoteContext.Provider value={quotes}>
+        <div className="w-screen relative">
         <Component {...pageProps} />
+        </div>
       </QuoteContext.Provider>
     );
   }

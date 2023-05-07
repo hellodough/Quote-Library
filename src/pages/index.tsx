@@ -1,33 +1,39 @@
 // index.html
 import { useEffect, useState } from 'react';
-import { Quote } from '../data/types';
-import { getTodaysQuote } from '../data';
+import { QuoteList } from '../data/types';
+import { getQuotes } from '../data';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 
 export default function HomePage() {
-  const [quotes, setQuotes] = useState<Quote[] | undefined>(undefined);
+  const [quotes, setQuotes] = useState<QuoteList | undefined>(undefined);
   const [isLoading, setLoading] = useState(false);
   const [fetchError, setFetchError] = useState(false);
+  const router = useRouter();
   
   useEffect(() => {
     setLoading(true);
-    getTodaysQuote().then(quotes => {
+    getQuotes().then(quotes => {
       setFetchError(false)
       setQuotes(quotes);
       setLoading(false);
     }).catch(error => setFetchError(error))
   }, []);
+  if(fetchError) return  <p>There was a problem fetching</p>
+  if(isLoading) return  'loading';
+if(quotes) {
 
   return (
     <div>
-      {fetchError && <p>There was a problem fetching</p>}
-      {isLoading ? 'loading' : 'not loading'}
       <ul>
-        {quotes?.map((quote) => (
-          <li key={quote.quote}>{quote.quote}</li>
-        ))}
+        {Object.entries(quotes).map(([id, quoteDetails]) => (
+          <li key={id}><Link href={`quote/${id}`}>{quoteDetails.quote}</Link></li>
+          ))}
       </ul>
 
     </div>
   );
+}
+return 'something is wrong'
 }

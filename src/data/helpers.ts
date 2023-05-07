@@ -1,7 +1,14 @@
-import {Quote, QuoteResponse } from './types';
+import {Quote, QuoteList, QuoteResponse } from './types';
 
-export const formatQuotes = (quotes: QuoteResponse[]) => quotes.map(quote => formatQuote(quote));
+/**
+ * Formats each of the quotes to be user friendly and then assigns an id to it
+ */
+export const formatQuotes = (quotes: QuoteResponse[]): QuoteList => quotes.reduce((obj, quote, index) => ({ ...obj, [`${index}`]: formatQuote(quote)}), {});
+// export const formatQuotes = (quotes: QuoteResponse[]) => Object.fromEntries(quotes.map(quote => [formatQuote(quote)));
 
+/**
+ * Rename the quote fields to be user friendly
+ */
 const formatQuote = ({q, a, i, c, h}: QuoteResponse): Quote => ({
     quote: q,
     authorName: a,

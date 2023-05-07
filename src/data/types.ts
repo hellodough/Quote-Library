@@ -13,3 +13,7 @@ export interface Quote {
         characterCount: string,
         preformattedQuote: string,
 }
+
+export interface QuoteList {
+        [key: number]: Quote
+}

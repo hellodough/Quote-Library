@@ -6,7 +6,6 @@ const nextConfig = {
           {
             source: '/api/:path*',
             destination: 'https://zenquotes.io/api/:path*'
-            // destination: 'http://localhost:4000/:path*'
           }
         ]
       }

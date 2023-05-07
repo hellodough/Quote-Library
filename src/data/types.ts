@@ -6,14 +6,10 @@ export interface QuoteResponse {
         h: string,
 }
 
-export interface Quote {
+export interface QuoteDetails {
         quote: string,
         authorName: string,
         authorImage: string,
         characterCount: string,
         preformattedQuote: string,
-}
-
-export interface QuoteList {
-        [key: number]: Quote
 }

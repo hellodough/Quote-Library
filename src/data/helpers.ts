@@ -12,7 +12,7 @@ export const formatQuotes = (quotes: QuoteResponse[]) => {
 /**
  * Rename the quote fields to be user friendly
  */
-const formatQuote = ({q, a, i, c, h}: QuoteResponse): QuoteDetails => ({
+export const formatQuote = ({q, a, i, c, h}: QuoteResponse): QuoteDetails => ({
     quote: q,
     authorName: a,
     authorImage: i,

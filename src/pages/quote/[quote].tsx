@@ -13,11 +13,13 @@ const QuotePage = () => {
     if (quoteDetails) {
       return (
         <div className="flex flex-col justify-center bg-lime-700 h-screen w-full">
-          <div className="l:mx-80 md:mx-40 xs:mx-40 ">
-            <div className="pb-3">
-            <Navigation />
+          <div className="l:mx-80 md:mx-40 xs:mx-40 flex flex-col items-center">
+            <div>
+              <div className="pb-3">
+                <Navigation />
+              </div>
+                <QuoteCard {...quoteDetails} />
             </div>
-            <QuoteCard {...quoteDetails} />
           </div>
         </div>
       );

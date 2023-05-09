@@ -1,7 +1,5 @@
 # Quote Library
 
-Candidate: Anna Do
-
 This application calls an api and displays the results into clickable links that route to individual pages for more details.
 
 The api used is [Zen Quotes](https://docs.zenquotes.io/zenquotes-documentation/)
